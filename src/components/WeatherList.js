@@ -4,11 +4,9 @@ import WeatherItem from "./WeatherItem";
 const WeatherList = ({ cityList, onItemSelect }) => {
   const renderedList = cityList.map(city => {
     return (
-      <WeatherItem
-        key={city.id}
-        onItemSelect={onItemSelect}
-        city={city}
-      ></WeatherItem>
+      <div>
+        <WeatherItem key={city.id} onItemSelect={onItemSelect} city={city} />
+      </div>
     );
   });
 
