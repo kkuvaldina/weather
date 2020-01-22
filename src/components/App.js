@@ -33,14 +33,20 @@ class App extends React.Component {
     return (
       <div className="ui center aligned container">
         <SearchForm onFormSubmit={this.onFormSubmit} />
-        <div className="ui compact segments">
-          <WeatherList
-            cityList={this.state.cityList}
-            onItemSelect={this.onItemSelect}
-          />
-        </div>
-        <div>
-          <WeatherItemClicked selectedCity={this.state.selectedCity} />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="ui compact segments">
+              <div className="six wide column">
+                <WeatherList
+                  cityList={this.state.cityList}
+                  onItemSelect={this.onItemSelect}
+                />
+              </div>
+            </div>
+            <div className="ten wide column">
+              <WeatherItemClicked selectedCity={this.state.selectedCity} />
+            </div>
+          </div>
         </div>
       </div>
     );

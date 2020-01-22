@@ -1,23 +1,26 @@
 import React from "react";
 
-const WeatherItemClicked = ({ city }) => {
+const WeatherItemClicked = ({ selectedCity }) => {
+  if (!selectedCity) {
+    return <div></div>;
+  }
   return (
-    <div>
+    <div className="ui segment">
       <img
-        src={`http://openweathermap.org/img/w/${city.weather[0].icon}.png`}
-        alt={city.weather[0].description}
+        src={`http://openweathermap.org/img/w/${selectedCity.weather[0].icon}.png`}
+        alt={selectedCity.weather[0].description}
       />
       <p>
-        {city.name}, {city.sys.country}
+        {selectedCity.name}, {selectedCity.sys.country}
       </p>
       <p>
-        Coordinates: {city.coord.lat}, {city.coord.lon}
+        Coordinates: {selectedCity.coord.lat}, {selectedCity.coord.lon}
       </p>
       <div>
-        {city.main.temp}
+        {selectedCity.main.temp}
         <span> &#8457;</span>
       </div>
-      <div>{city.weather[0].description}</div>
+      <div>{selectedCity.weather[0].description}</div>
     </div>
   );
 };
