@@ -1,6 +1,5 @@
 import React from "react";
 import SearchForm from "./SearchForm";
-import WeatherList from "./WeatherList";
 import WeatherItemClicked from "./WeatherItemClicked";
 import axios from "axios";
 
@@ -27,26 +26,18 @@ class App extends React.Component {
 
   onItemSelect = city => {
     this.setState({ selectedCity: city });
+    this.setState({ cityList: []});
   };
 
   render() {
     return (
       <div className="ui center aligned container">
-        <SearchForm onFormSubmit={this.onFormSubmit} />
-        <div className="ui grid">
-          <div className="ui row">
-            <div className="ui compact segments">
-              <div className="six wide column">
-                <WeatherList
-                  cityList={this.state.cityList}
-                  onItemSelect={this.onItemSelect}
-                />
-              </div>
-            </div>
-            <div className="ten wide column">
-              <WeatherItemClicked selectedCity={this.state.selectedCity} />
-            </div>
-          </div>
+        <SearchForm onFormSubmit={this.onFormSubmit} 
+        cityList={this.state.cityList}
+        onItemSelect={this.onItemSelect}/>
+        
+        <div className="ten wide column">
+          <WeatherItemClicked selectedCity={this.state.selectedCity} />
         </div>
       </div>
     );

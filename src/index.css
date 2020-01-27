@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    font-family: 'Varela Round', sans-serif;
+
+}
+
+.weather-list {
+    position: absolute !important;
+    right: 50%;
+    top: 57px;
+    z-index: 222;
+    margin: 0 !important;
+}
+
+.container {
+    margin-top: 20px !important;
+    
+}
+
+.weather-list-parent {
+    position: relative;
+}
+
+.weather-item {
+    margin: 0 !important;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 34px;
+    background-color: #3d3f4052 !important;
+    color: aqua;
+    
+}
+
+.weather-item-clicked {
+    background-color: #3d3f40 !important;
+}
+
+.form {
+    margin-bottom: 20px !important;
+}
+
+.secondary {
+    background-color: #3d3f40 !important;
+}

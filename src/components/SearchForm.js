@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherList from "./WeatherList";
 
 class SearchForm extends React.Component {
   state = { city: "" };
@@ -11,7 +12,7 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="weather-list-parent">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="ui input">
             <input
@@ -21,10 +22,17 @@ class SearchForm extends React.Component {
               onChange={event => this.setState({ city: event.target.value })}
             />
           </div>
-          <button className="ui center floated primary button m-2">
+          <button className="ui center floated secondary button m-2">
             Search
           </button>
         </form>
+
+        <div className="ui compact segments weather-list">
+          <WeatherList
+            cityList={this.props.cityList}
+            onItemSelect={this.props.onItemSelect}
+          />
+        </div>
       </div>
     );
   }
