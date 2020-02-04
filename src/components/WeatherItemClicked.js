@@ -1,6 +1,7 @@
 import React from "react";
 
-const WeatherItemClicked = ({ selectedCity }) => {
+const WeatherItemClicked = ({ selectedCity, temp, tempOnClick }) => {
+  
   if (!selectedCity) {
     return <div></div>;
   }
@@ -21,8 +22,8 @@ const WeatherItemClicked = ({ selectedCity }) => {
             {selectedCity.name}, {selectedCity.sys.country}
           </p>
           
-          <div className="weather-temp">
-            {selectedCity.main.temp}
+          <div onClick={() => tempOnClick(temp)} className="weather-temp">
+            {Math.round(temp)}
             <span> &#8457;</span>
           </div>
           <div>{selectedCity.weather[0].description}</div>
@@ -38,5 +39,7 @@ const WeatherItemClicked = ({ selectedCity }) => {
     </div>
   );
 };
+
+
 
 export default WeatherItemClicked;

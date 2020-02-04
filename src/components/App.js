@@ -6,7 +6,8 @@ import axios from "axios";
 class App extends React.Component {
   state = {
     cityList: [],
-    selectedCity: null
+    selectedCity: null,
+    temp: 0
   };
 
   onFormSubmit = city => {
@@ -26,8 +27,13 @@ class App extends React.Component {
 
   onItemSelect = city => {
     this.setState({ selectedCity: city });
+    this.setState({ temp: city.main.temp });
     this.setState({ cityList: []});
   };
+
+  tempOnClick = (t) => {
+    this.setState({temp: Math.round((t - 32)*5/9)});
+  }
 
   render() {
     return (
@@ -37,7 +43,7 @@ class App extends React.Component {
         onItemSelect={this.onItemSelect}/>
         
         <div className="ten wide column">
-          <WeatherItemClicked selectedCity={this.state.selectedCity} />
+          <WeatherItemClicked temp={this.state.temp} selectedCity={this.state.selectedCity} tempOnClick={this.tempOnClick} />
         </div>
       </div>
     );
