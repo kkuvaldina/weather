@@ -10,6 +10,7 @@ input[type="text"] {
 
 .ui.segments {
     border: none;
+    box-shadow: none;
 }
 
 .weather-list {
@@ -25,7 +26,9 @@ input[type="text"] {
     
 }
 
+
 .weather-item {
+    
     position: relative; 
     left: -50%;
     margin: 0 !important;
@@ -47,7 +50,7 @@ input[type="text"] {
     color: aqua;
     line-height: 36px;
     text-shadow: 1px 1px 9px black;
-    padding: 35px 0 !important;
+    padding: 35px 0 60px 0 !important;
 }
 
 .form {
@@ -62,6 +65,13 @@ input[type="text"] {
     font-size: 30px;
 }
 
+.weather-temp.small {
+    top: 185px;
+    left: -72px;
+    width: 88px;
+    height: 88px;
+}
+
 .weather-temp {
     position: absolute;
     font-size: 30px;
@@ -70,11 +80,13 @@ input[type="text"] {
     border: 1px solid #0000009e;
     box-shadow: 0px 0px 13px cyan;
     border-radius: 50%;
-    padding: 15px 20px;
-    width: 115px;
-    height: 115px;
+    padding: 5px;
+    width: 105px;
+    height: 105px;
     display: flex;
     line-height: 78px;
+    justify-content: center;
+    align-items: center;
 }
 
 .weather-image {
@@ -88,5 +100,10 @@ input[type="text"] {
         width: 110px;
         height: 110px;
         font-size: 27px;
+    }
+
+    .weather-temp.small {
+        top: 192px;
+        left:-68px;
     }
 }

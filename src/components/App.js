@@ -6,8 +6,7 @@ import axios from "axios";
 class App extends React.Component {
   state = {
     cityList: [],
-    selectedCity: null,
-    temp: 0
+    selectedCity: null
   };
 
   onFormSubmit = city => {
@@ -17,7 +16,7 @@ class App extends React.Component {
       )
       .then(response => {
         this.setState({
-          cityList: response.data.list
+          cityList: response.data.list,
         });
       })
       .catch(error => {
@@ -27,13 +26,12 @@ class App extends React.Component {
 
   onItemSelect = city => {
     this.setState({ selectedCity: city });
-    this.setState({ temp: city.main.temp });
     this.setState({ cityList: []});
   };
 
-  tempOnClick = (t) => {
+  /*tempOnClick = (t) => {
     this.setState({temp: Math.round((t - 32)*5/9)});
-  }
+  }*/
 
   render() {
     return (

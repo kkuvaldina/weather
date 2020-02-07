@@ -1,6 +1,6 @@
 import React from "react";
 
-const WeatherItemClicked = ({ selectedCity, temp, tempOnClick }) => {
+const WeatherItemClicked = ({ selectedCity }) => {
   
   if (!selectedCity) {
     return <div></div>;
@@ -22,10 +22,15 @@ const WeatherItemClicked = ({ selectedCity, temp, tempOnClick }) => {
             {selectedCity.name}, {selectedCity.sys.country}
           </p>
           
-          <div onClick={() => tempOnClick(temp)} className="weather-temp">
-            {Math.round(temp)}
+          <div className="weather-temp">
+            {Math.round(selectedCity.main.temp)}
             <span> &#8457;</span>
           </div>
+          <div className="weather-temp small">
+            {Math.round((selectedCity.main.temp - 32)*5/9)}
+            <span> &#8451;</span>
+          </div>
+
           <div>{selectedCity.weather[0].description}</div>
           <div>
             Feels like: {selectedCity.main.feels_like}
