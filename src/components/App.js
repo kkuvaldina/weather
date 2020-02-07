@@ -16,7 +16,7 @@ class App extends React.Component {
       )
       .then(response => {
         this.setState({
-          cityList: response.data.list
+          cityList: response.data.list,
         });
       })
       .catch(error => {
@@ -29,6 +29,10 @@ class App extends React.Component {
     this.setState({ cityList: []});
   };
 
+  /*tempOnClick = (t) => {
+    this.setState({temp: Math.round((t - 32)*5/9)});
+  }*/
+
   render() {
     return (
       <div className="ui center aligned container">
@@ -37,7 +41,7 @@ class App extends React.Component {
         onItemSelect={this.onItemSelect}/>
         
         <div className="ten wide column">
-          <WeatherItemClicked selectedCity={this.state.selectedCity} />
+          <WeatherItemClicked temp={this.state.temp} selectedCity={this.state.selectedCity} tempOnClick={this.tempOnClick} />
         </div>
       </div>
     );
